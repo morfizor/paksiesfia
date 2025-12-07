@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paksi és Fia - Üvegezés és Építészeti Üvegmegoldások</title>
+
+    <!-- Tailwind CSS (Design keretrendszer) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ikonkészlet (Lucide Icons) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Egyedi konfiguráció a színekhez a szórólap alapján -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                dark: "#2C3E50", // Sötétkék/szürke a logóhoz
+                accent: "#6B8C96", // A szórólapon lévő kékes-szürke árnyalat
+                light: "#F3F6F8", // Halvány háttérszín
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Apróbb finomhangolások */
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("bg-hero.png");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body class="text-gray-700 antialiased">
+    <!-- Navigáció -->
+    <nav
+      class="fixed w-full z-50 glass-effect shadow-sm transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Logó Helye -->
+          <div class="flex-shrink-0 flex items-center gap-2">
+            <div
+              class="text-3xl font-serif font-bold text-brand-dark tracking-wide"
+            >
+              PAKSI <span class="text-brand-accent">ÉS</span> FIA
+              <span
+                class="block text-xs font-sans font-light tracking-[0.3em] text-center text-gray-500"
+                >ÜVEGEZÉS</span
+              >
+            </div>
+          </div>
+
+          <!-- Desktop Menü -->
+          <div class="hidden md:flex space-x-8 items-center">
+            <a
+              href="#home"
+              class="text-gray-800 hover:text-brand-accent font-medium transition"
+              >Kezdőlap</a
+            >
+            <a
+              href="#services"
+              class="text-gray-800 hover:text-brand-accent font-medium transition"
+              >Szolgáltatások</a
+            >
+            <a
+              href="#references"
+              class="text-gray-800 hover:text-brand-accent font-medium transition"
+              >Referenciák</a
+            >
+            <a
+              href="#contact"
+              class="bg-brand-accent text-white px-5 py-2 rounded-full font-medium hover:bg-brand-dark transition shadow-lg"
+            >
+              Ajánlatkérés
+            </a>
+          </div>
+
+          <!-- Mobil menü gomb -->
+          <div class="md:hidden flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="text-gray-800 focus:outline-none"
+            >
+              <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobil Menü Lenxíló -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#home"
+            class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-50"
+            >Kezdőlap</a
+          >
+          <a
+            href="#services"
+            class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-50"
+            >Szolgáltatások</a
+          >
+          <a
+            href="#references"
+            class="block px-3 py-2 text-base font-medium text-gray-800 hover:bg-gray-50"
+            >Referenciák</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 text-base font-medium text-brand-accent font-bold"
+            >Kapcsolat</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section (Kezdőkép) -->
+    <section
+      id="home"
+      class="hero-bg h-screen flex items-center justify-center text-center px-4"
+    >
+      <div class="max-w-4xl mx-auto text-white pt-20">
+        <h1
+          class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight"
+        >
+          Kültéri és beltéri építészeti <br />
+          <span class="text-brand-accent">üvegmegoldások</span>
+        </h1>
+        <p
+          class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-light"
+        >
+          Üveg, ami formát ad az elképzeléseinek. Generációk óta Siófokon és
+          környékén.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#contact"
+            class="bg-brand-accent hover:bg-brand-dark text-white px-8 py-3 rounded-full text-lg font-medium transition shadow-lg w-full sm:w-auto"
+          >
+            Ingyenes felmérés
+          </a>
+          <a
+            href="tel:+36304649660"
+            class="bg-white hover:bg-gray-100 text-brand-dark px-8 py-3 rounded-full text-lg font-medium transition shadow-lg flex items-center justify-center gap-2 w-full sm:w-auto"
+          >
+            <i data-lucide="phone" class="w-5 h-5"></i> +36 30 464 9660
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- S.O.S Üvegcsere Szekció -->
+    <section class="py-16 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2 relative">
+            <!-- Illusztráció a törött üvegre -->
+            <div
+              class="absolute -top-4 -left-4 w-24 h-24 bg-brand-accent rounded-full opacity-20 z-0"
+            ></div>
+            <img
+              src="media/berepedt.jpeg"
+              alt="Betört ablak javítás"
+              class="relative z-10 rounded-lg shadow-2xl w-full object-cover h-80"
+            />
+          </div>
+          <div class="md:w-1/2">
+            <div class="border-l-4 border-brand-accent pl-6 mb-6">
+              <h2
+                class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-2"
+              >
+                Elrepedt? Betört?
+              </h2>
+              <p class="text-xl text-brand-accent font-medium">
+                Ablaküveg csere – Gyorsan, Biztonságosan.
+              </p>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Egy váratlan üvegtörés mindig kellemetlen helyzetet okoz: huzat,
+              balesetveszély, sérült otthon. Mi tudjuk, hogy ilyenkor a
+              legfontosabb a gyors és szakszerű segítség. Csapatunk rövid
+              határidővel, precíz munkával és megfizethető áron vállalja
+              ablaküvegek cseréjét.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="check-circle"
+                  class="text-green-500 w-5 h-5"
+                ></i>
+                <span>Rövid határidős kiszállás</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="check-circle"
+                  class="text-green-500 w-5 h-5"
+                ></i>
+                <span>Biztosító által elfogadott számla</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <i
+                  data-lucide="check-circle"
+                  class="text-green-500 w-5 h-5"
+                ></i>
+                <span>Tiszta, precíz munkavégzés</span>
+              </li>
+            </ul>
+            <a
+              href="tel:+36309667238"
+              class="inline-flex items-center text-brand-accent font-bold hover:underline"
+            >
+              Sürgős esetben hívjon minket!
+              <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Szolgáltatások Képes Kártyákkal (EZ A RÉSZ FRISSÜLT) -->
+    <section id="services" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <span
+          class="text-brand-accent uppercase tracking-widest font-semibold text-sm"
+          >Mit vállalunk?</span
+        >
+        <h2
+          class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mt-2 mb-16"
+        >
+          Minőségi üvegmegoldások
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 1. Hőszigetelt üveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/hoszigetelt_uveg3.jpeg"
+              alt="Hőszigetelt ablak"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="maximize" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Hőszigetelt üveg
+              </h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Energiahatékony megoldások nyílászárókba, 2 vagy 3 rétegű
+                kivitelben.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. Edzett & Ragasztott üveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/hoszigetelt_uveg2.jpeg"
+              alt="Biztonsági üveg"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="shield-check" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Edzett & Ragasztott
+              </h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Törésbiztos biztonsági üvegek portálokhoz és nagy
+                igénybevételhez.
+              </p>
+            </div>
+          </div>
+
+          <!-- 3. Üvegkorlát & Előtető -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/savmart_uveg_2.jpeg"
+              alt="Üvegkorlát"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="layout-grid" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Üvegkorlát & Előtető
+              </h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Modern pontmegfogásos vagy sínes rögzítés, elegáns megjelenés.
+              </p>
+            </div>
+          </div>
+
+          <!-- 4. Zuhanykabin -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop"
+              alt="Zuhanykabin"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="droplets" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Zuhanykabin</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Egyedi méretre gyártott, keret nélküli vagy keretes
+                zuhanykabinok.
+              </p>
+            </div>
+          </div>
+
+          <!-- 5. Tükör & Fazettázás -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/hoszigetelt_uveg3.jpeg"
+              alt="Tükör"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="frame" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">
+                Tükör & Fazettázás
+              </h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Fürdőszobai, előszobai tükrök egyedi méretben, csiszolt
+                szélekkel.
+              </p>
+            </div>
+          </div>
+
+          <!-- 6. Kandalló üveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/uvegteto.jpeg"
+              alt="Kandalló"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="flame" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Hőálló üveg</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Magas hőmérsékletnek ellenálló speciális Robax üvegek cseréje.
+              </p>
+            </div>
+          </div>
+
+          <!-- 7. Savmart üveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/savmart_uveg.jpeg"
+              alt="Savmart üveg"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="eye-off" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Savmart üveg</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Átlátszatlan dekorüvegek ajtókba, térelválasztókba, diszkrét
+                megjelenéssel.
+              </p>
+            </div>
+          </div>
+
+          <!-- 8. Bútorüveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/konyhai_hatfal_2.jpeg"
+              alt="Üvegasztal"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="armchair" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Bútorüveg</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Asztallapok, polcok, vitrinek üvegezése és pótlása bármilyen
+                méretben.
+              </p>
+            </div>
+          </div>
+
+          <!-- 9. Drótüveg -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1456428199391-a3b1cb5e93ab?q=80&w=800&auto=format&fit=crop"
+              alt="Textúrált üveg"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="grid-3x3" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Drótüveg</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Hagyományos, dróthálóval erősített üvegek melléképületekbe,
+                pincékbe.
+              </p>
+            </div>
+          </div>
+
+          <!-- 10. Polikarbonát -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="media/uvegteto.jpeg"
+              alt="Polikarbonát tető"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="sun-medium" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Polikarbonát</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Ütésálló, UV-védett légkamrás lemezek előtetőkhöz és fedésekhez.
+              </p>
+            </div>
+          </div>
+
+          <!-- 11. Plexi -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=800&auto=format&fit=crop"
+              alt="Színes műanyag elemek"
+              class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-brand-dark/70 group-hover:bg-brand-dark/60 transition-colors duration-300"
+            ></div>
+            <div
+              class="relative h-full flex flex-col justify-end p-8 text-left z-10"
+            >
+              <div class="mb-4 text-brand-accent">
+                <i data-lucide="layers" class="w-10 h-10"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-2">Plexi</h3>
+              <p class="text-gray-200 text-sm opacity-90">
+                Könnyen megmunkálható, víztiszta vagy színes műanyag
+                üveghelyettesítők.
+              </p>
+            </div>
+          </div>
+
+          <!-- Üres kártya a grid kiegyenlítésére -->
+          <div
+            class="group relative h-80 rounded-xl overflow-hidden border-2 border-dashed border-gray-300 flex items-center justify-center bg-gray-50 hover:bg-gray-100 transition"
+          >
+            <div class="text-center p-6">
+              <h3 class="text-xl font-bold text-gray-500 mb-2">
+                Egyedi elképzelése van?
+              </h3>
+              <p class="text-gray-400 text-sm mb-4">
+                Keressen minket és megvalósítjuk!
+              </p>
+              <a
+                href="#contact"
+                class="inline-block bg-brand-accent text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-brand-dark transition"
+                >Kapcsolat</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Referenciák (Képgaléria) -->
+    <section id="references" class="py-20 bg-brand-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-10 text-center"
+        >
+          Referencia munkáink
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="h-64 overflow-hidden rounded-lg shadow-md group">
+            <img
+              src="media/zuhanykabin.jpeg"
+              alt="Üvegkorlát munka"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+            />
+          </div>
+          <div class="h-64 overflow-hidden rounded-lg shadow-md group">
+            <img
+              src="media/konyhai_hatfal_3.jpeg"
+              alt="Zuhanykabin munka"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+            />
+          </div>
+          <div class="h-64 overflow-hidden rounded-lg shadow-md group">
+            <img
+              src="media/konyhai_hatfal.jpeg"
+              alt="Irodai üvegfal"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+            />
+          </div>
+          <div
+            class="h-64 md:col-span-2 overflow-hidden rounded-lg shadow-md group"
+          >
+            <img
+              src="media/konyhai_hatfal_3.jpeg"
+              alt="Panoráma üvegezés"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+            />
+          </div>
+          <div class="h-64 overflow-hidden rounded-lg shadow-md group">
+            <img
+              src="media/uvegteto.jpeg"
+              alt="Egyedi tükör"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kapcsolat Szekció -->
+    <section id="contact" class="py-20 bg-brand-dark text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+          <!-- Elérhetőségek -->
+          <div>
+            <h2 class="text-3xl font-serif font-bold mb-6">
+              Keressen minket bizalommal!
+            </h2>
+            <p class="text-gray-300 mb-8">
+              Legyen szó egy egyszerű üvegcseréről vagy komplett építészeti
+              üvegmegoldásokról, állunk rendelkezésére. Kérjen ajánlatot még ma!
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="bg-brand-accent p-3 rounded-full">
+                  <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Címünk</h3>
+                  <p class="text-gray-300">
+                    8600 Siófok, Aradi vértanúk útja 2.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-brand-accent p-3 rounded-full">
+                  <i data-lucide="phone" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Telefonszámok</h3>
+                  <p class="text-gray-300 block">
+                    <a
+                      href="tel:+36304649660"
+                      class="hover:text-brand-accent transition"
+                      >+36 30 464 9660</a
+                    >
+                  </p>
+                  <p class="text-gray-300 block">
+                    <a
+                      href="tel:+36309667238"
+                      class="hover:text-brand-accent transition"
+                      >+36 30 966 7238</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-brand-accent p-3 rounded-full">
+                  <i data-lucide="mail" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Email cím</h3>
+                  <a
+                    href="mailto:paksigabor69@gmail.com"
+                    class="text-gray-300 hover:text-brand-accent transition"
+                    >paksigabor69@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="bg-brand-accent p-3 rounded-full">
+                  <i data-lucide="facebook" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg">Kövessen minket</h3>
+                  <a
+                    href="https://facebook.com/paksiesfiauvegezes"
+                    target="_blank"
+                    class="text-gray-300 hover:text-brand-accent transition"
+                    >facebook.com/paksiesfiauvegezes</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Űrlap -->
+          <div class="bg-white text-gray-800 p-8 rounded-2xl shadow-xl">
+            <h3 class="text-2xl font-bold mb-6">Ajánlatkérés</h3>
+            <form action="#" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Név</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent outline-none"
+                  placeholder="Az Ön neve"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Email / Telefon</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent outline-none"
+                  placeholder="Elérhetősége"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Üzenet</label
+                >
+                <textarea
+                  rows="4"
+                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-accent focus:border-transparent outline-none"
+                  placeholder="Miben segíthetünk? (pl. zuhanykabin méret, törött ablak)"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-brand-dark text-white font-bold py-3 rounded-lg hover:bg-brand-accent transition duration-300"
+              >
+                Üzenet elküldése
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p>&copy; 2024 Paksi és Fia Üvegezés - Minden jog fenntartva.</p>
+        <p class="text-sm mt-2">
+          Siófok - Üveges munkák, tükrök, építészeti üvegek.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Script az ikonokhoz és a mobil menühöz -->
+    <script>
+      lucide.createIcons();
+
+      const btn = document.getElementById("mobile-menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
