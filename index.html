@@ -53,9 +53,21 @@
       .hero-bg {
         background-image:
           linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
-          url("bg-hero-v2.png");
+          url("media/savmart_uveg_2.jpeg"); /* Itt a mobil kép elérési útja */
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+      }
+
+           /* 2. Nagyobb kijelzők (Desktop/Tablet - min-width: 768px) */
+      /* Ez felülírja a mobil beállítást, ha a képernyő szélesebb */
+      @media (min-width: 768px) {
+        .hero-bg {
+          background-image:
+            linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+            url("bg-hero-v2.png"); /* Az eredeti desktop kép */
+        }
+      }
       }
     </style>
   </head>
